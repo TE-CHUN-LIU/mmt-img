@@ -1,0 +1,10 @@
+# 防呆：這是公開 repo（圖床），絕不要誤 commit 機密或雜物
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p8
+node_modules/
+.DS_Store
+.vercel/
