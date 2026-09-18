@@ -31,7 +31,7 @@ if [ "$CMD" = "ship" ] && [ -d .git ]; then
     echo "工作樹乾淨，跳過 commit"
   fi
   if git remote get-url origin >/dev/null 2>&1; then
-    [ $DRY = 1 ] && echo "(dry) 略過 push" || { git push -q origin HEAD:main && echo "✓ push main"; }
+    [ $DRY = 1 ] && echo "(dry) 略過 push" || { git pull -q --rebase --autostash origin main; git push -q origin HEAD:main && echo "✓ push main"; }
   else
     echo "此 repo 沒有 origin，只 commit 不 push"
   fi
